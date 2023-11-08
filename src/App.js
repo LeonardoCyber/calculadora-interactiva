@@ -29,8 +29,14 @@ function App() {
 
   const calcularResultado = () => {
     if (input) {
-      setInput(evaluate(input));
+      if (/[\+\-\*\/]/.test(input)) {
+        setInput(evaluate(input));
+      } else {
+        setInput('');
+        alert('Entrada no válida. Por favor, ingrese una expresión matemática válida.');
+      }
     } else {
+      setInput('');
       alert('Por favor ingresar valores para realizar los cálculos');
     }
   };
